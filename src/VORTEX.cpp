@@ -33,8 +33,8 @@ void VORTEX::loop() {
         char c = Serial.read();
         if (c == '\r' || c == '\n') { // gestisce CR, LF o CR+LF
             inputBuffer[inputPos] = '\0';
+            Serial.println();          // va sempre a capo
             if (inputPos > 0) {
-                Serial.println();            // va a capo prima dell’output
                 handleInput(inputBuffer);    // esegue il comando
             }
             inputPos = 0;
